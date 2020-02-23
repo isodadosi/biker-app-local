@@ -43,6 +43,7 @@ gem 'carrierwave', '~> 1.3.1'
 gem 'cloudinary', '1.11.1'
 gem 'dotenv-rails'
 gem 'kaminari'
+gem 'annotate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -55,7 +56,6 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'rubocop', '~> 0.55.0', require: false
-  
 end
 
 group :test do
