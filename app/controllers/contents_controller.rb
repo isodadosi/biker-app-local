@@ -1,7 +1,7 @@
 class ContentsController < ApplicationController
 
   def index
-    @contents = Content.page(params[:page])
+    @contents = Content.search(params[:search]).page(params[:page])
   end
 
   def new

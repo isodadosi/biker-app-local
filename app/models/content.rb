@@ -10,4 +10,12 @@ class Content < ApplicationRecord
     mount_uploader :image, ImageUploader
     # mount_uploader :image, CloudinaryImageUploader
 
+    def self.search(search)
+      if search
+        where(['place LIKE ?', "%#{search}%"]) 
+      else
+        all
+      end
+    end
+    
 end
