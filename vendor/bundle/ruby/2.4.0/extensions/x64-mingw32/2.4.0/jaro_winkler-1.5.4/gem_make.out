@@ -1,0 +1,19 @@
+current directory: C:/prog/Rails-Local/biker-app/little-by-little-git-heroku/biker-app-git/vendor/bundle/ruby/2.4.0/gems/jaro_winkler-1.5.4/ext/jaro_winkler
+C:/Ruby24-x64/bin/ruby.exe -r ./siteconf20200221-7680-1qjnbgt.rb extconf.rb
+creating Makefile
+
+current directory: C:/prog/Rails-Local/biker-app/little-by-little-git-heroku/biker-app-git/vendor/bundle/ruby/2.4.0/gems/jaro_winkler-1.5.4/ext/jaro_winkler
+make "DESTDIR=" clean
+
+current directory: C:/prog/Rails-Local/biker-app/little-by-little-git-heroku/biker-app-git/vendor/bundle/ruby/2.4.0/gems/jaro_winkler-1.5.4/ext/jaro_winkler
+make "DESTDIR="
+generating jaro_winkler_ext-x64-mingw32.def
+compiling adj_matrix.c
+compiling codepoints.c
+compiling jaro.c
+compiling jaro_winkler.c
+linking shared-object jaro_winkler/jaro_winkler_ext.so
+
+current directory: C:/prog/Rails-Local/biker-app/little-by-little-git-heroku/biker-app-git/vendor/bundle/ruby/2.4.0/gems/jaro_winkler-1.5.4/ext/jaro_winkler
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 jaro_winkler_ext.so ./.gem.20200221-7680-16hbite/jaro_winkler
