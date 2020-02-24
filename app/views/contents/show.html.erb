@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+  <div class="alert alert-primary"><%= flash[:notice] %></div>
+<% end %>
+
+<%= render 'shared/error_messages' %>
+
 <div class="card">
   <div class="card-header">
     <h4><%= @content.title %></h4>
@@ -47,9 +53,14 @@
     </div>
 
   </div>
-  
+
 </div>
 
+
+
+<%= render @content.comments %>
+
+<%= render partial: 'comments/form', locals: { comment: @comment }%>
 
 
 <script>

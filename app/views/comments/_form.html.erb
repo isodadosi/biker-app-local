@@ -1,0 +1,27 @@
+<% if @current_user %>
+            <%= @current_user.name%>
+          <% else %>
+<% end %>
+
+<div class="card">
+    <div class="card-header">コメント投稿</div>
+    <%= form_for comment do |f| %>
+    <%= f.hidden_field :content_id %>
+    <div class="card-body">
+      <% if @current_user %>
+        <p>ユーザー名：<%= @current_user.name%></p>
+        <%= f.hidden_field :name, :value => @current_user.name %>
+      <% else %>
+        <p>ユーザー名：ゲスト</p>
+        <%= f.hidden_field :name, :value => 'ゲスト' %>
+      <% end %>
+      <p>
+      <%= f.label :comment, 'コメント' %>
+      <%= f.text_area :comment, class: 'form-control', rows: 4 %>
+      </p>      
+      <%= f.submit '送信', class: 'btn btn-primary' %>
+    </div>
+      
+
+  <% end %>
+</div>

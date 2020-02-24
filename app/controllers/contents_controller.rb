@@ -28,6 +28,7 @@ class ContentsController < ApplicationController
 
   def show
     @content = Content.find(params[:id])
+    @comment = Comment.new(content_id: @content.id)
   end
 
   private

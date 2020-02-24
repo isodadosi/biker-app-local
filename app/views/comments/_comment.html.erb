@@ -1,0 +1,6 @@
+<ul class="list-group-item">
+      <li class="list-group">ユーザー名：<%= comment.name %></li>
+      <li class="list-group"><%= simple_format(comment.comment) %></li>
+      <li class="list-group"><%= comment.created_at.to_s(:datetime_jp) %></li>
+</ul>
+
