@@ -8,6 +8,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= content.title %></h5>
           <p class="card-text text-right"><%= content.place %></p>
+          <div><%= link_to '削除', content , method: :delete , class: 'btn btn-outline-dark'%></div>
         </div>
       </div>
       <% end %>
