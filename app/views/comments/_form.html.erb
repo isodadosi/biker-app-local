@@ -1,9 +1,4 @@
-<% if @current_user %>
-            <%= @current_user.name%>
-          <% else %>
-<% end %>
-
-<div class="card">
+<div class="card mt-3">
     <div class="card-header">コメント投稿</div>
     <%= form_for comment do |f| %>
     <%= f.hidden_field :content_id %>
