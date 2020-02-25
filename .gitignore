@@ -8,10 +8,9 @@
 /.bundle
 
 /.env
-
 /.rubocop_todo.yml
-
 /.rubocpo.yml
+/vendor/bundle
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
