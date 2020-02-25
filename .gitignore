@@ -7,10 +7,12 @@
 # Ignore bundler config.
 /.bundle
 
+# 追加
 /.env
 /.rubocop_todo.yml
 /.rubocpo.yml
 /vendor/bundle
+/config/database.yml
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
