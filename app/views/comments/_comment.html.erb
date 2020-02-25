@@ -1,6 +1,9 @@
-<ul class="list-group-item">
-      <li class="list-group">ユーザー名：<%= comment.name %></li>
-      <li class="list-group"><%= simple_format(comment.comment) %></li>
-      <li class="list-group"><%= comment.created_at.to_s(:datetime_jp) %></li>
+
+<ul class="list-group list-group-flush">
+      <li class="list-group-item">
+            <p>ユーザー名：<%= comment.name %></p>
+            <p><%= simple_format(comment.comment) %></p>
+            <p class="float-right"><%= comment.created_at.to_s(:datetime_jp) %></p>
+      </li>
 </ul>
 
