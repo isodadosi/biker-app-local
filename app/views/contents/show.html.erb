@@ -4,6 +4,13 @@
 
 <%= render 'shared/error_messages' %>
 
+<div class="d-flex align-items-center mt-4 mb-4">
+  <div class="ml-auto boards__linkBox">
+    <%= link_to '一覧', contents_path, class: 'btn btn-outline-dark' %>
+    <%= link_to '編集', edit_content_path(@content), class: 'btn btn-outline-dark' %>
+  </div>
+</div>
+
 <div class="card">
   <div class="card-header">
     <h4><%= @content.title %></h4>
@@ -46,6 +53,18 @@
           <tbody>
             <tr>
               <td><%= @content.place%></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <td><div class="font-weight-bold">緯度 経度</div>GoogleMapに以下の値を入力すると位置が表示されます</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @content.latitude%> <%= @content.longitude%></td>
             </tr>
           </tbody>
         </table>

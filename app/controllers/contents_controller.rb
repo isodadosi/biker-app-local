@@ -31,6 +31,29 @@ class ContentsController < ApplicationController
     @comment = Comment.new(content_id: @content.id)
   end
 
+  def edit
+    @content = Content.find(params[:id])
+  end
+
+  def update
+    content = Content.find(params[:id])
+
+    content.update(content_params)
+    
+    results = Geocoder.search([content[:latitude],content[:longitude]])
+      @prefecture = results.first.state
+      content[:prefecture] = @prefecture
+      @address = results.first.address
+      @address_split = @address.split(",").reverse
+      @address = @address_split.join(" ")
+      content[:place] = @address
+
+
+    content.save
+
+    redirect_to content
+  end
+
   private
 
   def content_params
