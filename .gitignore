@@ -14,6 +14,9 @@
 /vendor/bundle
 /config/database.yml
 /public/uploads/
+/spec/
+/.rspec
+
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
