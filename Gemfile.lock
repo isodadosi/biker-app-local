@@ -320,6 +320,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
+  nokogiri (>= 1.10.8)
   pg
   puma (~> 3.11)
   rails (~> 5.2.2)
