@@ -13,6 +13,7 @@
 /.rubocpo.yml
 /vendor/bundle
 /config/database.yml
+/public/uploads/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
