@@ -16,7 +16,7 @@
 /public/uploads/
 /spec/
 /.rspec
-/.Gemfile
+
 
 
 # Ignore the default SQLite database.
