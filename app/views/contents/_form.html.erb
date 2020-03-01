@@ -1,0 +1,143 @@
+
+<%= form_for content do |f| %>
+  <% if @current_user %>
+    <p>作成者名：<%= @current_user.name%></p>
+    <%= f.hidden_field :name, :value => @current_user.name %>
+  <% else %>
+    <p>作成者名：ゲスト</p>
+    <%= f.hidden_field :name, :value => 'ゲスト' %>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :title, 'タイトル' %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <p><%=f.label "画像をアップロード" %><br><%= f.file_field :image %></p>
+  <div class="form-group">
+    <%= f.label :body, '説明' %>
+    <%= f.text_area :body, class: 'form-control', rows: 10 %>
+  </div>
+  
+  <div class="form-group">
+    <p>場所,住所,地名など</p>
+    <input id="address" type="textbox" value="">
+    <%= f.hidden_field :latitude, :value => 35.681167 , id: 'lat_id'%>
+    <%= f.hidden_field :longitude, :value => 139.767052, id: 'lng_id'%>
+    <input type="button" value="検索" onclick="codeAddress()">
+  </div>
+  <div class="form-group">
+    <div id='map' style="height: 500px"></div>
+  </div>
+  <%= f.submit '保存', class: 'btn btn-outline-dark' %>
+<% end %>
+
+
+<input id="lat_receive" type="hidden" value="<%= content.latitude %>"></input>
+<input id="lng_receive" type="hidden" value="<%= content.longitude %>"></input>
+
+
+
+<script>
+
+var map
+var geocoder
+var marker
+
+
+// 初期値とクリックの処理
+function initMap(){
+
+    let lat_now;
+    let lng_now;
+    // number型でしか緯度経度としては使えないため変換
+    if(Number(document.getElementById('lat_receive').value && Number(document.getElementById('lat_receive').value) ) == 0 ){
+      lat_now = 35.681167;
+      lng_now = 139.767052;
+    }else{
+      lat_now = Number(document.getElementById('lat_receive').value);
+      lng_now = Number(document.getElementById('lng_receive').value);
+    }
+
+    console.log(lat_now);
+    console.log(lng_now);
+    
+   
+    // geocoderの初期化
+    geocoder = new google.maps.Geocoder()
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: lat_now, lng: lng_now},
+        zoom: 8
+    });
+
+    // 初期値にマーカーをセット
+    
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat_now,lng_now),
+        map: map
+    });
+    marker.setMap(map);
+        
+    
+    // クリックした場所にマーカーをセット
+    var data = {lat: null, lng: null};
+    map.addListener('click', function(e) {
+ 
+        // すでにマーカーがあれば削除
+        if(marker !== null){
+            marker.setMap(null)
+        };
+        data.lat = e.latLng.lat();
+        data.lng = e.latLng.lng();
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.lat,data.lng),
+        });
+        marker.setMap(map);
+
+        // 現在のマーカーの位置をフォームへ渡す
+        document.getElementById('lat_id').value = data.lat;
+        document.getElementById('lng_id').value = data.lng;
+    });
+
+    
+}
+
+// 場所が入力された場合の処理
+    function codeAddress(){
+      if(marker  !== null){
+            marker.setMap(null)
+        };
+  
+          
+            // 入力を取得
+        let inputAddress = document.getElementById('address').value;
+
+        // geocodingしたあとmapを移動
+        geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+        if (status == 'OK') {
+            // 検索地点への地図の移動
+            map.setCenter(results[0].geometry.location);
+            // 検索地点へマーカーをセット
+
+            marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+            });
+
+            // 現在のマーカーの位置をフォームへ渡す
+            var pos = marker.getPosition();
+            var lat = pos.lat();
+            var lng = pos.lng();
+            document.getElementById('lat_id').value = lat;
+            document.getElementById('lng_id').value = lng;
+
+        } else {
+            alert('その場所は存在しません、別の名前で入力してください');
+        }
+      });
+
+    }
+
+    
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap" async defer></script>
