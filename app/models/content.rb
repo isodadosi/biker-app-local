@@ -17,5 +17,13 @@ class Content < ApplicationRecord
       all
     end
    end
+
+   def self.search_my_content(search)
+      if search
+            where(['name LIKE ?', "%#{search}%"]) 
+        else
+            all
+        end
+    end
     
 end

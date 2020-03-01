@@ -1,20 +1,3 @@
-<div class="row row-cols-1 row-cols-md-2">
-  <% @contents.each do |content| %>
-    
-    <div class="col mb-5 ">
-      <%= link_to content do %>
-      <div class="card text-center">
-        <%= image_tag content.image.url(:schema) , class: 'card-img-top' %>
-        <div class="card-body">
-          <h5 class="card-title"><%= content.title %></h5>
-          <p class="card-text text-right"><%= content.place %></p>
-          <div><%= link_to '削除', content , method: :delete , class: 'btn btn-outline-dark'%></div>
-        </div>
-      </div>
-      <% end %>
-    </div>
- 
-  <% end %>
-</div>
+<h1 class="mb-3">みんなの投稿</h1>
 
-<%= paginate @contents %>
+<%= render partial: 'content', locals: { contents: @contents } %>

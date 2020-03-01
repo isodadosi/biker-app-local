@@ -7,20 +7,31 @@
   <div class="collapse navbar-collapse" id="Navber">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">マイページ</a>
+        <%= link_to 'マイページ', users_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
         <a><%= link_to '場所を登録', new_content_path, class: 'nav-link' %></a>
       </li>
+      
       <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ゲスト
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <% if @current_user %>
+            <%= @current_user.name%>
+          <% else %>
+            ゲスト
+          <% end %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">ログイン</a>
-          <a class="dropdown-item" href="#">新規登録</a>
+          <% if @current_user %>
+            <%= link_to 'マイページ', users_path, class: 'dropdown-item' %>
+            <%= link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item' %>
+          <% else %>
+            <%= link_to '登録', new_user_path, class: 'dropdown-item' %>
+            <%= link_to 'ログイン', new_session_path, class: 'dropdown-item' %>
+          <% end %>
         </div>
       </li>
+
     </ul>
     <%= form_tag(contents_path, :method => 'get',class: 'form-inline my-2 my-lg-0' ) do %>
       <%= text_field_tag :search , "",{class: 'form-control mr-sm-2', placeholder: "地名など..."}%>
