@@ -4,16 +4,11 @@
 
 <%= render 'shared/error_messages' %>
 
-<div class="d-flex align-items-center mt-4 mb-4">
-  <div class="ml-auto boards__linkBox">
-    <%= link_to '一覧', contents_path, class: 'btn btn-outline-dark' %>
-    <%= link_to '編集', edit_content_path(@content), class: 'btn btn-outline-dark' %>
-  </div>
-</div>
 
 <div class="card">
   <div class="card-header">
     <h4><%= @content.title %></h4>
+    <p>投稿者：<%= @content.name %></p>
   </div>
   <div class="card-body container">
   
@@ -52,7 +47,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= @content.place%></td>
+              <td><%= @content.place %></td>
             </tr>
           </tbody>
         </table>

@@ -6,8 +6,8 @@ class CreateContents < ActiveRecord::Migration[5.2]
       t.text :body
       t.string :image
       t.string :prefecture
-      t.float :latitude
-      t.float :longitude
+      t.float :latitude , default: '35.681167'
+      t.float :longitude, default: '139.767052'
       t.string :name
 
       t.timestamps
