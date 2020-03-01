@@ -1,7 +1,7 @@
 class ContentsController < ApplicationController
 
   def index
-    @contents = Content.search(params[:search]).page(params[:page])
+    @contents = Content.order("id DESC").search(params[:search]).page(params[:page])
   end
 
   def new
@@ -50,6 +50,6 @@ class ContentsController < ApplicationController
   private
 
   def content_params
-    params.require(:content).permit(:name, :title, :body, :prefecture, :image , :latitude, :longitude )
+    params.require(:content).permit(:name, :title, :body, :prefecture, :image , :latitude, :longitude, :place )
   end
 end
