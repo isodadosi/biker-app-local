@@ -7,17 +7,17 @@
 
 <div class="card">
   <div class="card-header">
-    <h4><%= @content.title %></h4>
-    <p>投稿者：<%= @content.name %></p>
+    <h4><%= @shop.title %></h4>
+    <p>投稿者：<%= @shop.name %></p>
   </div>
   <div class="card-body container">
   
-<input id="lat_receive" type="hidden" value="<%= @content.latitude %>"></input>
-<input id="lng_receive" type="hidden" value="<%= @content.longitude %>"></input>
+<input id="lat_receive" type="hidden" value="<%= @shop.latitude %>"></input>
+<input id="lng_receive" type="hidden" value="<%= @shop.longitude %>"></input>
 
 
   <div class="row align-items-start">
-      <%= image_tag @content.image.url(angle: 0), class: "col-md-7" %>
+      <%= image_tag @shop.image.url(angle: 0), class: "col-md-7" %>
       <div class="col-md-5">
         <table class="table">
             <thead>
@@ -27,7 +27,7 @@
             </thead>
             <tbody>
               <tr>
-                <td><%= simple_format(@content.body)%></td>
+                <td><%= simple_format(@shop.body)%></td>
               </tr>
             </tbody>
           </table>
@@ -47,7 +47,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= @content.place %></td>
+              <td><%= @shop.place %></td>
             </tr>
           </tbody>
         </table>
@@ -59,7 +59,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= @content.latitude%> <%= @content.longitude%></td>
+              <td><%= @shop.latitude%> <%= @shop.longitude%></td>
             </tr>
           </tbody>
         </table>
@@ -70,18 +70,18 @@
 
 </div>
 
-<div class="card mt-3">
+<%# <div class="card mt-3">
   <div class="card-header">
     コメント一覧
   </div>
   <div class="card-body">
-    <%= render @content.comments %>
-  </div>
+    <%= render @shop.comments %>
+  <%# </div>
 
-</div>
+</div> %>
 
 
-<%= render partial: 'comments/form', locals: { comment: @comment }%>
+<%# <%= render partial: 'comments/form', locals: { comment: @comment }%>
 
 
 <script>

@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_065452) do
     t.text "body"
     t.string "image"
     t.string "prefecture"
+    t.string "place"
     t.float "latitude"
     t.float "longitude"
     t.integer "parking_rank"
