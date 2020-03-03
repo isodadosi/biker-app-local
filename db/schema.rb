@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_140915) do
+ActiveRecord::Schema.define(version: 2020_03_02_024200) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "content_id"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_140915) do
   create_table "contents", force: :cascade do |t|
     t.string "title"
     t.string "place"
-    t.text "body"
+    t.text "body", limit: 65535
     t.string "image"
     t.string "prefecture"
     t.float "latitude"

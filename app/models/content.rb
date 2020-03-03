@@ -1,6 +1,9 @@
 class Content < ApplicationRecord
   has_many :comments
 
+  validates :title, presence: true, length: {maximum: 30}
+  validates :body, length: {maximum: 2000}
+
   # gem geocoderで使用、今は使わない
   # def address
   #   [postcode, countrt, state, city, street].compact.join(':')
