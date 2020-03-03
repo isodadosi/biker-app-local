@@ -4,13 +4,6 @@ class Content < ApplicationRecord
   validates :title, presence: true, length: {maximum: 30}
   validates :body, length: {maximum: 2000}
 
-  # gem geocoderで使用、今は使わない
-  # def address
-  #   [postcode, countrt, state, city, street].compact.join(':')
-  # end
-  #lat, lonというカラムを設ける
-  # geocoded_by :address, latitude: :lat, longitude: :lon
-
   def self.get_adress(results)
     address = results.first.address
     address_split = address.split(",").reverse
