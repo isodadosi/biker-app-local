@@ -1,9 +1,14 @@
 <% if @current_user %>
   <h2><%= @current_user.name%> 様の投稿</h2>
+  <p>----------景色----------<p>
   <% content_for(:delete_name, '削除') %>
   <% content_for(:edit_name, '編集') %>
   <% content_for(:delete_class, 'btn btn-outline-dark') %>
   <%= render partial: 'contents/content', locals: { contents: @contents } %>
+  <p>----------お店----------<p>
+ 
+  <%= render partial: 'shops/content', locals: { contents: @shops } %>
+
 
 <% else %>
   <h2>ようこそゲストユーザー様、まずはユーザー登録をお願いします</h2>
