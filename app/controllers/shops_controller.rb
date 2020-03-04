@@ -13,6 +13,8 @@ class ShopsController < ApplicationController
     if shop.save
       results = Geocoder.search([shop[:latitude],shop[:longitude]])
       shop[:place] = Shop.get_adress(results)
+      @prefecture = results.first.state
+      shop[:prefecture] = @prefecture
       shop.save
       redirect_to shop
     else
@@ -36,6 +38,8 @@ class ShopsController < ApplicationController
     shop.update(shop_params)
     results = Geocoder.search([shop[:latitude],shop[:longitude]])
     shop[:place] = Shop.get_adress(results)
+    @prefecture = results.first.state
+    shop[:prefecture] = @prefecture
     shop.save
     
     redirect_to shop
