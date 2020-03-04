@@ -11,7 +11,7 @@ class Content < ApplicationRecord
     return address = "〒" + address_split.join(" ")
   end
 
-  def self.get_prefecture
+  def self.get_prefecture(results)
     @prefecture = results.first.state
     content[:prefecture] = @prefecture
   end

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <%= link_to 'BIKERS.WEB', contents_path, class: 'navbar-brand'%>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
     <span class="navbar-toggler-icon"></span>
@@ -6,20 +6,32 @@
 
   <div class="collapse navbar-collapse" id="Navber">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <%= link_to 'マイページ', users_path, class: 'nav-link' %>
       </li>
-      <li class="nav-item active">
-        <%= link_to '景色を探す', contents_path, class: 'nav-link' %>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          場所を探す
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a><%= link_to '景色を探す', contents_path, class: 'dropdown-item' %></a>
+          <a><%= link_to 'お店を探す', shops_path, class: 'dropdown-item' %></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">その他</a>
+        </div>
       </li>
-      <li class="nav-item active">
-        <%= link_to 'お店を探す', shops_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item">
-        <a><%= link_to '場所を登録', new_content_path, class: 'nav-link' %></a>
-      </li>
-      <li class="nav-item">
-        <a><%= link_to 'お店を登録', new_shop_path, class: 'nav-link' %></a>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          場所を登録
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a><%= link_to '景色を登録', new_content_path, class: 'dropdown-item' %></a>
+          <a><%= link_to 'お店を登録', new_shop_path, class: 'dropdown-item' %></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">その他</a>
+        </div>
       </li>
       
       <li class="nav-item dropdown">
@@ -44,7 +56,7 @@
     </ul>
     <%= form_tag(contents_path, :method => 'get',class: 'form-inline my-2 my-lg-0' ) do %>
       <%= text_field_tag :search , "",{class: 'form-control mr-sm-2', placeholder: "地名など..."}%>
-      <%= submit_tag '検索', :name => nil ,class: 'btn btn-outline-dark my-2 my-sm-0' %>
+      <%= submit_tag '検索', :name => nil ,class: 'btn btn-outline-light my-2 my-sm-0' %>
     <% end %>
   </div>
 </nav>

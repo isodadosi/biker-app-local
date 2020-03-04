@@ -13,6 +13,8 @@ class ContentsController < ApplicationController
     if content.save
       results = Geocoder.search([content[:latitude],content[:longitude]])
       content[:place] = Content.get_adress(results)
+      @prefecture = results.first.state
+      content[:prefecture] = @prefecture
       content.save
       redirect_to content
     else
@@ -36,6 +38,8 @@ class ContentsController < ApplicationController
     content.update(content_params)
     results = Geocoder.search([content[:latitude],content[:longitude]])
     content[:place] = Content.get_adress(results)
+    @prefecture = results.first.state
+    content[:prefecture] = @prefecture
     content.save
     
     redirect_to content
