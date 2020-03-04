@@ -1,6 +1,5 @@
-class Content < ApplicationRecord
-  has_many :comments
-
+class Shop < ApplicationRecord
+    
   validates :title, presence: true, length: {maximum: 30}
   validates :body, length: {maximum: 2000}
 
@@ -33,5 +32,4 @@ class Content < ApplicationRecord
             all
         end
     end
-    
 end

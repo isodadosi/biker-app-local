@@ -1,14 +1,16 @@
-class CreateContents < ActiveRecord::Migration[5.2]
+class CreateShops < ActiveRecord::Migration[5.2]
   def change
-    create_table :contents do |t|
+    create_table :shops do |t|
+      t.string :name
       t.string :title
-      t.string :place
       t.text :body
       t.string :image
       t.string :prefecture
+      t.string :place
       t.float :latitude
       t.float :longitude
-      t.string :name
+      t.integer :parking_rank
+      t.text :parking_description
 
       t.timestamps
     end

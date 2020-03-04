@@ -16,7 +16,9 @@ class ContentsController < ApplicationController
       content.save
       redirect_to content
     else
-      redirect_to new_content_path
+      redirect_to new_content_path, flash: {
+        error_messages: content.errors.full_messages
+      }
     end
   end
 

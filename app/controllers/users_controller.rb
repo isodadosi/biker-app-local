@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
+
   def index
-    
     if @current_user
       search_name = @current_user.name
     else
       search_name = "ゲスト"
     end
     @contents = Content.search_my_content(search_name).page(params[:page])
+    @shops = Shop.search_my_content(search_name).page(params[:page])
   end
 
   def new

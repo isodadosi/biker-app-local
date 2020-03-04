@@ -2,7 +2,6 @@
   <% contents.each do |content| %>
     
     <div class="col mb-4 ">
-      
       <div class="card text-center">
         <%= image_tag content.image.url(:schema) , class: 'card-img-top' %>
         <div class="card-body">
@@ -12,13 +11,11 @@
             <div>
               <%= link_to '詳細', content, class: 'btn btn-outline-dark' %>
               <%= link_to yield(:delete_name), content, class: yield(:delete_class), method: :delete %>
-              <%= link_to yield(:edit_name), edit_content_path(content), class: yield(:delete_class) %>
+              <%= link_to yield(:edit_name), edit_shop_path(content), class: yield(:delete_class) %>
             </div>
           </div>
         </div>
-      
       </div>
-      
     </div>
  
   <% end %>
