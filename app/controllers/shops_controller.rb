@@ -56,6 +56,6 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:name, :title, :body, :prefecture, :image , :latitude, :longitude, :place )
+    params.require(:shop).permit(:name, :title, :body, :prefecture, :image , :latitude, :longitude, :place, :parking_select, :parking_description )
   end
 end

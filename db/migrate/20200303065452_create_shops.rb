@@ -10,6 +10,7 @@ class CreateShops < ActiveRecord::Migration[5.2]
       t.float :latitude
       t.float :longitude
       t.integer :parking_rank
+      t.string :parking_select
       t.text :parking_description
 
       t.timestamps
