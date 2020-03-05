@@ -1,0 +1,32 @@
+current directory: C:/prog/Rails-Local/biker-app/little-by-little-git-heroku/biker-app-git/vendor/bundle/ruby/2.4.0/gems/rmagick-4.0.0/ext/RMagick
+C:/Ruby24-x64/bin/ruby.exe -r ./siteconf20200217-12844-y9pz2o.rb extconf.rb
+checking for brew... no
+checking for pacman... yes
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=C:/Ruby24-x64/bin/$(RUBY_BASE_NAME)
+extconf.rb:95:in ``': No such file or directory - identify -version (Errno::ENOENT)
+	from extconf.rb:95:in `configure_compile_options'
+	from extconf.rb:19:in `initialize'
+	from extconf.rb:361:in `new'
+	from extconf.rb:361:in `<main>'
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  C:/prog/Rails-Local/biker-app/little-by-little-git-heroku/biker-app-git/vendor/bundle/ruby/2.4.0/extensions/x64-mingw32/2.4.0/rmagick-4.0.0/mkmf.log
+
+extconf failed, exit code 1
