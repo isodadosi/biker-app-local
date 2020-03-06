@@ -20,6 +20,7 @@ database_yml
 /public/uploads/
 /spec/
 /.rspec
+/sdf
 
 
 

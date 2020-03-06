@@ -94,10 +94,7 @@ function initMap(){
       lng_now = Number(document.getElementById('lng_receive').value);
     }
 
-    console.log(lat_now);
-    console.log(lng_now);
-    
-   
+
     // geocoderの初期化
     geocoder = new google.maps.Geocoder()
     map = new google.maps.Map(document.getElementById('map'), {
