@@ -15,10 +15,12 @@
 database_yml
 /config/database.yml
 /vendor/bundle
+/vendor-old/bundle
 /config/database.yml
 /public/uploads/
 /spec/
 /.rspec
+/sdf
 
 
 
