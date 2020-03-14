@@ -9,6 +9,9 @@
   <div class="card-header">
     <h4><%= @shop.title %></h4>
     <p>投稿者：<%= @shop.name %></p>
+    <% @shop.categorys.each do |category| %>
+    <p>カテゴリ：<%= category.name%></p>
+    <% end %>
   </div>
   <div class="card-body container">
   
@@ -84,18 +87,7 @@
 
 </div>
 
-<%# <div class="card mt-3">
-  <div class="card-header">
-    コメント一覧
-  </div>
-  <div class="card-body">
-    <%= render @shop.comments %>
-  <%# </div>
 
-</div> %>
-
-
-<%# <%= render partial: 'comments/form', locals: { comment: @comment }%>
 
 
 <script>
