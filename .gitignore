@@ -19,7 +19,7 @@ database_yml
 /spec/
 /.rspec
 /sdf
-/vendor/bundle
+/vender/bundle
 
 
 
