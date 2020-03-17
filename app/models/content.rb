@@ -18,6 +18,7 @@ class Content < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  # 検索機能
   def self.search(search)
     if search
       where(['place LIKE ?', "%#{search}%"]) 
@@ -26,6 +27,7 @@ class Content < ApplicationRecord
     end
    end
 
+  #  Mypageでの自分の作成物のみを取得
    def self.search_my_content(search)
       if search
             where(['name LIKE ?', "%#{search}%"]) 

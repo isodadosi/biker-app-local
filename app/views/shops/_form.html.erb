@@ -18,7 +18,7 @@
   <% end %>
 
   <div class="form-group">
-    <span>タグ</span>
+    <span>カテゴリ</span>
     <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
       <div class="form-check">
         <%= category.label class: 'form-check-label' do %>
