@@ -3,11 +3,11 @@ class UsersController < ApplicationController
   def index
     if @current_user
       if @current_user.name == "admin"
-        @contents = Content.page(params[:page])
+        @sceneris = Scenery.page(params[:page])
         @shops = Shop.page(params[:page])
       else
         search_name = @current_user.name
-        @contents = Content.search_my_content(search_name).page(params[:page])
+        @sceneris = Scenery.search_my_content(search_name).page(params[:page])
         @shops = Shop.search_my_content(search_name).page(params[:page])
       end
       search_name = @current_user.name

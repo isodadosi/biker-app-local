@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :contents
   resources :shops
+  resources :sceneries
   resources :comments, only: %i[create destroy]
   resources :users, only: %i[new create index]
   resources :sessions, only: %i[new]
