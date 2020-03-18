@@ -1,8 +1,16 @@
 class ContentsController < ApplicationController
 
   def index
-    @contents = Content.order("id DESC").search(params[:search]).page(params[:page])
-    @shops = Shop.order("id DESC").search(params[:search]).page(params[:page])
+    @sceneris = Scenery.order("id DESC").search(params[:search])
+    @shops = Shop.order("id DESC").search(params[:search])
+
+    @contents = (@sceneris+@shops).sort_by{|record| record.created_at}.reverse!
+
+
+    @contents = Kaminari.paginate_array(@contents).page(params[:page])
+
+    # require 'byebug'; byebug
+
   end
 
   def new

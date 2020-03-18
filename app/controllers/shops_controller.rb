@@ -1,8 +1,8 @@
 class ShopsController < ApplicationController
     
-    def index
-      @shops = Shop.order("id DESC").search(params[:search]).page(params[:page])
-    end
+  def index
+    @shops = Shop.order("id DESC").search(params[:search]).page(params[:page])
+  end
 
   def new
     @shop = Shop.new

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_064610) do
+ActiveRecord::Schema.define(version: 2020_03_18_083310) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -36,6 +36,22 @@ ActiveRecord::Schema.define(version: 2020_03_13_064610) do
     t.float "latitude"
     t.float "longitude"
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sceneries", force: :cascade do |t|
+    t.string "name"
+    t.string "title", null: false
+    t.text "body"
+    t.string "image"
+    t.string "place"
+    t.string "prefecture"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "parking_select"
+    t.text "parking_description"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
