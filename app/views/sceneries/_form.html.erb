@@ -9,6 +9,7 @@
 <% end %>
 
 <%= form_for content do |f| %>
+
   <% if @current_user %>
     <p>作成者名：<%= @current_user.name%></p>
     <%= f.hidden_field :name, :value => @current_user.name %>
@@ -17,7 +18,18 @@
     <%= f.hidden_field :name, :value => 'ゲスト' %>
   <% end %>
 
-  
+    <div class="form-group">
+  <%= f.select :category,
+  [ '自然',
+    '人工物',
+    '夜景',
+    '行事',
+    '季節限定',
+    'その他',
+  ],
+    {include_blank: 'カテゴリを選択'}, 
+    {class: 'custom-select'} %>
+  </div>
 
   <div class="form-group">
     <%=f.label "画像をアップロード" %>
@@ -34,27 +46,22 @@
     <%= f.text_area :body, class: 'form-control', rows: 10 %>
   </div>
 
-
   <div class="form-group">
   <%= f.select :parking_select,
-  [ 'お店に多くの駐車スペースがあり、確実に停めれる',
-    'お店にバイク用駐輪場がある',
-    'お店に駐輪場はないが駐車場がある',
-    'お店に駐車場が少しある',
-    '近くにバイクを停めれる場所がある',
-    '近くにはバイクを止めれる場所がない' ],
+  [ '目的地にバイクを停めれる',
+    '目的地の近くにバイクを停められる',
+    '目的地から少し離れた場所にバイクを停められる',
+    '近くにバイクを停められる場所は無い',
+    'その他',
+  ],
     {include_blank: 'バイクの停めやすさを選択'}, 
     {class: 'custom-select'} %>
   </div>
 
-
-
  <div class="form-group">
-    <%= f.label :body, '駐輪、駐車についての補足情報' %>
+    <%= f.label :body, '駐輪についての補足情報' %>
     <%= f.text_area :parking_description, class: 'form-control', rows: 2 %>
   </div>
-  
-
   
   <div class="form-group">
     <p>場所,住所,地名など</p>
@@ -67,13 +74,12 @@
     <div id='map' style="height: 500px"></div>
   </div>
   <%= f.submit '保存', class: 'btn btn-outline-dark' %>
+
 <% end %>
 
 
 <input id="lat_receive" type="hidden" value="<%= content.latitude %>"></input>
 <input id="lng_receive" type="hidden" value="<%= content.longitude %>"></input>
-
-
 
 <script>
 

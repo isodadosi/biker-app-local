@@ -1,0 +1,26 @@
+<div class="row row-cols-1 row-cols-md-2">
+
+  <% contents.each do |scenery| %>
+    <div class="col mb-4 ">
+      <div class="card text-center">
+        <%= image_tag scenery.image.url(:schema) , class: 'card-img-top' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= scenery.title %></h5>
+          <a class="card-text text-center badge badge-primary">投稿者：<%= scenery.name %></a>
+          <p class="card-text text-right"><%= scenery.prefecture %></p>
+          
+            <div>
+              <%= link_to '詳細', scenery, class: 'btn btn-outline-dark' %>
+              <%= link_to yield(:delete_name), scenery, class: yield(:delete_class), method: :delete %>
+              <%= link_to yield(:edit_name), edit_scenery_path(scenery), class: yield(:delete_class) %>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>
+
+
+

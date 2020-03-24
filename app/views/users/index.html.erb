@@ -4,8 +4,8 @@
   <% content_for(:delete_name, '削除') %>
   <% content_for(:edit_name, '編集') %>
   <% content_for(:delete_class, 'btn btn-outline-dark') %>
-  <%= render partial: 'contents/content', locals: { contents: @sceneris } %>
-  <h3>お店<h3>
+  <%= render partial: 'sceneries/content', locals: { contents: @sceneris } %>
+  <h3>お店</h3>
  
   <%= render partial: 'shops/content', locals: { contents: @shops } %>
 

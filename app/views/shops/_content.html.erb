@@ -8,13 +8,11 @@
           <h5 class="card-title"><%= content.title %></h5>
           <a class="card-text text-center badge badge-primary">投稿者：<%= content.name %></a>
           <p class="card-text text-right"><%= content.prefecture %></p>
-          <div class="delete" >
             <div>
               <%= link_to '詳細', content, class: 'btn btn-outline-dark' %>
               <%= link_to yield(:delete_name), content, class: yield(:delete_class), method: :delete %>
               <%= link_to yield(:edit_name), edit_shop_path(content), class: yield(:delete_class) %>
             </div>
-          </div>
         </div>
       </div>
     </div>
