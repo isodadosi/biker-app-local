@@ -9,8 +9,6 @@ class ContentsController < ApplicationController
 
     @contents = Kaminari.paginate_array(@contents).page(params[:page])
 
-    # require 'byebug'; byebug
-
   end
 
   def new
