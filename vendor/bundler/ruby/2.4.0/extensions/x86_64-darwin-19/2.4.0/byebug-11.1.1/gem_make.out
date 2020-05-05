@@ -1,0 +1,19 @@
+current directory: /Users/isoda/Desktop/Prog/Rails/Product/biker-app-local/vendor/bundler/ruby/2.4.0/gems/byebug-11.1.1/ext/byebug
+/Users/isoda/.rbenv/versions/2.4.9/bin/ruby -r ./siteconf20200505-18556-1l2571q.rb extconf.rb
+creating Makefile
+
+current directory: /Users/isoda/Desktop/Prog/Rails/Product/biker-app-local/vendor/bundler/ruby/2.4.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/isoda/Desktop/Prog/Rails/Product/biker-app-local/vendor/bundler/ruby/2.4.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/isoda/Desktop/Prog/Rails/Product/biker-app-local/vendor/bundler/ruby/2.4.0/gems/byebug-11.1.1/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20200505-18556-wfyz1l/byebug
